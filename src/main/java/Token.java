@@ -17,9 +17,20 @@ public class Token {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == null || obj.getClass() != this.getClass()) return false;
-        final Token token = (Token) obj;
-        return token.type() == this.type() && token.value().equals(this.value());
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Token token = (Token) o;
+
+        if (type != token.type()) return false;
+        return value.equals(token.value());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = type.hashCode();
+        result = 31 * result + value.hashCode();
+        return result;
     }
 }
