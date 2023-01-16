@@ -1,9 +1,9 @@
 public class InputStream {
 
     final private char[] stream;
-    int position = 0;
-    int column = 0;
-    int line = 0;
+    private int position = 0;
+    private int column = 0;
+    private int line = 0;
 
     public InputStream(String input) {
         stream = input.toCharArray();
@@ -28,7 +28,7 @@ public class InputStream {
         return position == stream.length;
     }
 
-    public Throwable croak(String msg) {
+    public RuntimeException croak(String msg) {
         return new RuntimeException(msg + "(" + line + ":" + column + ")");
     }
 }
