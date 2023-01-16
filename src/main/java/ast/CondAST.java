@@ -1,5 +1,7 @@
 package ast;
 
+import java.util.Objects;
+
 final public class CondAST extends ASTToken {
 
     ASTToken cond;
@@ -28,14 +30,14 @@ final public class CondAST extends ASTToken {
 
         if (!cond.equals(condAST.cond)) return false;
         if (!then.equals(condAST.then)) return false;
-        return elseToken.equals(condAST.elseToken);
+        return Objects.equals(elseToken, condAST.elseToken);
     }
 
     @Override
     public int hashCode() {
         int result = cond.hashCode();
         result = 31 * result + then.hashCode();
-        result = 31 * result + elseToken.hashCode();
+        result = 31 * result + (elseToken != null ? elseToken.hashCode() : 0);
         return result;
     }
 }

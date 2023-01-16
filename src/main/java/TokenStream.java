@@ -7,7 +7,7 @@ public class TokenStream {
 
     private Token current = null;
 
-    private final String[] keywords = { "if", "else" };
+    private final String[] keywords = { "if", "else", "then", "true", "false", "function" };
 
     public TokenStream(String stream) {
         this.stream = new InputStream(stream);

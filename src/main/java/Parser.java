@@ -29,7 +29,7 @@ public class Parser {
         return ary;
     }
 
-    private ASTToken parseCall(FuncAST func) {
+    private ASTToken parseCall(ASTToken  func) {
         return new FuncCallAST(func, delimited("(", ")", ",", this::parseExpression));
     }
 
@@ -108,7 +108,7 @@ public class Parser {
     }
 
     private ASTToken maybeCall(Supplier<ASTToken> func) {
-        return isPunc("(") ? new BoolAST(true) : func.get();
+        return isPunc("(") ? parseCall(func.get()) : func.get();
     }
 
     private ASTToken maybeBinary(ASTToken left, int myPrecedence) {

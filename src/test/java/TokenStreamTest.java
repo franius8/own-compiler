@@ -123,4 +123,14 @@ class TokenStreamTest {
         testToken = new Token(TokenType.STRING, "test");
         assertEquals(testToken, test.next());
     }
+
+    @Test
+    @DisplayName("Input stream correctly read a bool keyword")
+    void boolTest() {
+        TokenStream test = new TokenStream("true false");
+        Token testToken = new Token(TokenType.KWD, "true");
+        assertEquals(testToken, test.next());
+        testToken = new Token(TokenType.KWD, "false");
+        assertEquals(testToken, test.next());
+    }
 }

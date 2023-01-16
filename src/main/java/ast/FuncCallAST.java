@@ -3,10 +3,10 @@ package ast;
 import java.util.ArrayList;
 
 final public class FuncCallAST extends ASTToken {
-    FuncAST func;
+    ASTToken func;
     ArrayList<ASTToken> args;
 
-    public FuncCallAST(FuncAST func, ArrayList<ASTToken> args) {
+    public FuncCallAST(ASTToken func, ArrayList<ASTToken> args) {
         super(ASTType.CALL);
         this.func = func;
         this.args = args;
