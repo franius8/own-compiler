@@ -1,15 +1,28 @@
 package ast;
 
 final public class AssignAST extends ASTToken{
-    String operator;
-    ASTToken left;
-    ASTToken right;
-    public AssignAST(String operator, ASTToken left, ASTToken right) {
+    private final String operator;
+    private final VarAST left;
+    private final ASTToken right;
+    public AssignAST(String operator, VarAST left, ASTToken right) {
         super(ASTType.ASSIGN);
         this.operator = operator;
         this.left = left;
         this.right = right;
     }
+
+    public String getOperator() {
+        return operator;
+    }
+
+    public VarAST getLeft() {
+        return left;
+    }
+
+    public ASTToken getRight() {
+        return right;
+    }
+
 
     @Override
     public boolean equals(Object o) {

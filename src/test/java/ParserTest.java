@@ -1,7 +1,9 @@
 import ast.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,7 +37,7 @@ class ParserTest {
     @Test
     @DisplayName("Correctly parses boolean multiple boolean inputs")
     void parseBool() {
-        Parser parser = new Parser("true false");
+        Parser parser = new Parser("true; false");
         ASTToken[] astAry = { new BoolAST(true), new BoolAST(false) };
         ProgAST prog = new ProgAST(astAry);
         assertEquals(prog, parser.parse());
@@ -64,8 +66,8 @@ class ParserTest {
     @DisplayName("Correctly parses a function call")
     void parseCall() {
         Parser parser = new Parser("foo(a, 1)");
-        String[] args = { "x" };
-        ASTToken[] astAry = { new FuncAST(args, new NumAST(10)) };
+        ArrayList<ASTToken> args = new ArrayList<>(Arrays.asList(new VarAST("a"), new NumAST(1)));
+        ASTToken[] astAry = { new FuncCallAST(new VarAST("foo"), args) };
         ProgAST prog = new ProgAST(astAry);
         assertEquals(prog, parser.parse());
     }

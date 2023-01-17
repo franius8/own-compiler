@@ -110,7 +110,8 @@ public class Parser {
     }
 
     private ASTToken maybeCall(Supplier<ASTToken> func) {
-        return isPunc("(") ? parseCall(func.get()) : func.get();
+        ASTToken token = func.get();
+        return isPunc("(") ? parseCall(token) : token;
     }
 
     private ASTToken maybeBinary(ASTToken left, int myPrecedence) {
@@ -122,7 +123,8 @@ public class Parser {
                 ASTToken right = maybeBinary(parseAtom(), theirPrecedence);
                 ASTToken binary;
                 if (tok.value().equals("=")) {
-                    binary = new AssignAST(tok.value(), left, right);
+                    if (left.getType() != ASTType.VAR) throw stream.croak("Cannot assign to " + left);
+                    binary = new AssignAST(tok.value(), (VarAST) left, right);
                 } else {
                     binary = new BinaryAST(tok.value(), left, right);
                 }

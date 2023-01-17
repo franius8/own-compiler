@@ -9,4 +9,9 @@ public abstract class ASTToken {
     public ASTType getType() {
         return type;
     };
+
+    @Override
+    public String toString() {
+        return "{ type=" + type.toString() + " }";
+    }
 }

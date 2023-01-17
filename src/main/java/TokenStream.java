@@ -109,7 +109,7 @@ public class TokenStream {
 
     private final Predicate<Character> isOpChar = x -> "+-*/%=&|<>!".indexOf(x) != -1;
 
-    private final Predicate<Character> isPunc = x -> ".;()[]{}".indexOf(x) != -1;
+    private final Predicate<Character> isPunc = x -> ",;()[]{}".indexOf(x) != -1;
 
     private final Predicate<Character> isWhiteSpace = x -> " \n\t".indexOf(x) != -1;
 
