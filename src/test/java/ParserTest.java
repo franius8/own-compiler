@@ -102,10 +102,24 @@ class ParserTest {
     @DisplayName("Parses a binary expression")
     void parseBinary() {
         Parser parser = new Parser("x + y * z");
-        BinaryAST right = new BinaryAST("*", new VarAST("y"), new VarAST("x"));
+        BinaryAST right = new BinaryAST("*", new VarAST("y"), new VarAST("z"));
         ASTToken[] astAry = { new BinaryAST("+", new VarAST("x"), right)};
         ProgAST prog = new ProgAST(astAry);
-        ProgAST result =  parser.parse();
+        assertEquals(prog, parser.parse());
+    }
+
+    @Test
+    @DisplayName("Entire program (with semicolons) parsed correctly")
+    void parseProg() {
+        Parser parser = new Parser("""
+                  a = 5;
+                  b = a * 2;
+                  a + b;
+                  """);
+       ASTToken[] astAry = { new AssignAST("=", new VarAST("a"), new NumAST(5)),
+        new AssignAST("=", new VarAST("b"), new BinaryAST("*", new VarAST("a"), new NumAST(2))),
+        new BinaryAST("+", new VarAST("a"), new VarAST("b"))};
+        ProgAST prog = new ProgAST(astAry);
         assertEquals(prog, parser.parse());
     }
 

@@ -49,6 +49,7 @@ public class Parser {
         ArrayList<ASTToken> progList = new ArrayList<>();
         while(!stream.eof()) {
             progList.add(parseExpression());
+            if (!stream.eof()) skipPunc(";");
         }
         return new ProgAST(progList.toArray(new ASTToken[progList.size()]));
     }
@@ -95,6 +96,7 @@ public class Parser {
         ASTToken then = parseExpression();
         CondAST ifBlock;
         if (isKwd("else")) {
+            stream.next();
             ASTToken elseEx = parseExpression();
             ifBlock = new CondAST(cond, then, elseEx);
         } else {

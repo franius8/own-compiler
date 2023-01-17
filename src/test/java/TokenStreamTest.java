@@ -133,4 +133,17 @@ class TokenStreamTest {
         testToken = new Token(TokenType.KWD, "false");
         assertEquals(testToken, test.next());
     }
+    @Test
+    @DisplayName("Input stream correctly read an entire line with string assignment and semicolon ending")
+    void stringLineSemicolonTest() {
+        TokenStream test = new TokenStream("test = \"test\";");
+        Token testToken = new Token(TokenType.VAR, "test");
+        assertEquals(testToken, test.next());
+        testToken = new Token(TokenType.OP, "=");
+        assertEquals(testToken, test.next());
+        testToken = new Token(TokenType.STRING, "test");
+        assertEquals(testToken, test.next());
+        testToken = new Token(TokenType.PUNC, ";");
+        assertEquals(testToken, test.next());
+    }
 }
