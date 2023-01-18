@@ -12,6 +12,7 @@ final public class CondAST extends ASTToken {
         super(ASTType.IF);
         this.cond = cond;
         this.then = then;
+        this.elseToken = null;
     }
 
     public CondAST(ASTToken cond, ASTToken then, ASTToken elseToken) {
@@ -19,6 +20,18 @@ final public class CondAST extends ASTToken {
         this.cond = cond;
         this.then = then;
         this.elseToken = elseToken;
+    }
+
+    public ASTToken getCond() {
+        return cond;
+    }
+
+    public ASTToken getThen() {
+        return then;
+    }
+
+    public ASTToken getElseToken() {
+        return elseToken;
     }
 
     @Override

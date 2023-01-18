@@ -12,6 +12,14 @@ final public class FuncAST extends ASTToken {
 
     }
 
+    public String[] getVars() {
+        return vars;
+    }
+
+    public ASTToken getBody() {
+        return body;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

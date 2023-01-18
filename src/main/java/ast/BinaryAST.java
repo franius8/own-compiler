@@ -12,6 +12,18 @@ public class BinaryAST extends ASTToken {
         this.right = right;
     }
 
+    public String getOperator() {
+        return operator;
+    }
+
+    public ASTToken getLeft() {
+        return left;
+    }
+
+    public ASTToken getRight() {
+        return right;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

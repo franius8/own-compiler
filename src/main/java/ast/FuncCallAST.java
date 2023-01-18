@@ -12,6 +12,14 @@ final public class FuncCallAST extends ASTToken {
         this.args = args;
     }
 
+    public ASTToken getFunc() {
+        return func;
+    }
+
+    public ArrayList<ASTToken> getArgs() {
+        return args;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
