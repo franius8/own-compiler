@@ -5,4 +5,6 @@ final public class NumAST extends PrimitiveAST<Integer> {
         super(ASTType.NUM, value);
     }
 
+
+
 }

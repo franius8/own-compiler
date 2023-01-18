@@ -9,6 +9,10 @@ public class ProgAST extends ASTToken {
         this.sequence = sequence;
     }
 
+    public ASTToken[] getSequence() {
+        return sequence;
+    }
+
     @Override
     public String toString() {
         return "ProgAST{" +
