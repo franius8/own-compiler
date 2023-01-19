@@ -146,4 +146,11 @@ class TokenStreamTest {
         testToken = new Token(TokenType.PUNC, ";");
         assertEquals(testToken, test.next());
     }
+
+    @Test
+    @DisplayName("Does not allow unknown characters")
+    void unknownCharactersTest() {
+        TokenStream test = new TokenStream("@");
+        assertThrows(RuntimeException.class, test::next);
+    }
 }

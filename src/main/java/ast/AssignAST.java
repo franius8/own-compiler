@@ -23,6 +23,15 @@ final public class AssignAST extends ASTToken{
         return right;
     }
 
+    @Override
+    public String toString() {
+        return "Assign{" +
+                "operator='" + operator + '\'' +
+                ", left=" + left +
+                ", right=" + right +
+                ", type=" + type +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {

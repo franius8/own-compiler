@@ -25,6 +25,16 @@ public class BinaryAST extends ASTToken {
     }
 
     @Override
+    public String toString() {
+        return "BinaryAST{" +
+                "operator='" + operator + '\'' +
+                ", left=" + left +
+                ", right=" + right +
+                ", type=" + type +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

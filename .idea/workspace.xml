@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="199e8055-5707-4b00-90cf-95e3c9ba1ced" name="Changes" comment="Correct semicolon handling and function call parsing">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="199e8055-5707-4b00-90cf-95e3c9ba1ced" name="Changes" comment="Add JSMaker for converting the programs to Javasript - alpha version">
+      <change afterPath="$PROJECT_DIR$/src/main/java/CMaker.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/Environment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Evaluate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/JSMaker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/JSMakerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Evaluator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/CMakerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/EvaluatorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ast/AssignAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/AssignAST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ast/BinaryAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/BinaryAST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ast/CondAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/CondAST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ast/FuncAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/FuncAST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ast/FuncCallAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/FuncCallAST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ast/NumAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/NumAST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ast/ProgAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/ProgAST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TokenStreamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TokenStreamTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +24,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
+        <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -49,78 +47,80 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_directory_selection": "/Users/franciszekskawinski/Documents/GitHub/ProgrammingLanguage/src/main/java/codeMakers",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="codeMakers" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.JSMakerTest.generateCall">
-    <configuration name="JSMakerTest.generateCall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ProgrammingLanguage" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EvaluatorTest.boolBinary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingLanguage" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="JSMakerTest" />
-      <option name="METHOD_NAME" value="generateCall" />
+      <option name="MAIN_CLASS_NAME" value="EvaluatorTest" />
+      <option name="METHOD_NAME" value="boolBinary" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JSMakerTest.generateFunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EvaluatorTest.boolIntBinary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingLanguage" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="JSMakerTest" />
-      <option name="METHOD_NAME" value="generateFunction" />
+      <option name="MAIN_CLASS_NAME" value="EvaluatorTest" />
+      <option name="METHOD_NAME" value="boolIntBinary" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JSMakerTest.generateIf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EvaluatorTest.evaluateIf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingLanguage" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="JSMakerTest" />
-      <option name="METHOD_NAME" value="generateIf" />
+      <option name="MAIN_CLASS_NAME" value="EvaluatorTest" />
+      <option name="METHOD_NAME" value="evaluateIf" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JSMakerTest.generatesAssign" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EvaluatorTest.evaluateVar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingLanguage" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="JSMakerTest" />
-      <option name="METHOD_NAME" value="generatesAssign" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JSMakerTest.generatesComplicatedBinary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProgrammingLanguage" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="JSMakerTest" />
-      <option name="METHOD_NAME" value="generatesComplicatedBinary" />
+      <option name="MAIN_CLASS_NAME" value="EvaluatorTest" />
+      <option name="METHOD_NAME" value="evaluateVar" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -128,11 +128,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.JSMakerTest.generateCall" />
-        <item itemvalue="JUnit.JSMakerTest.generateIf" />
-        <item itemvalue="JUnit.JSMakerTest.generateFunction" />
-        <item itemvalue="JUnit.JSMakerTest.generatesAssign" />
-        <item itemvalue="JUnit.JSMakerTest.generatesComplicatedBinary" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.EvaluatorTest.evaluateIf" />
+        <item itemvalue="JUnit.EvaluatorTest.evaluateVar" />
+        <item itemvalue="JUnit.EvaluatorTest.boolBinary" />
+        <item itemvalue="JUnit.EvaluatorTest.boolIntBinary" />
       </list>
     </recent_temporary>
   </component>
@@ -147,7 +147,9 @@
       <workItem from="1673819632023" duration="4435000" />
       <workItem from="1673851903391" duration="26461000" />
       <workItem from="1673950272228" duration="12436000" />
-      <workItem from="1674025392443" duration="5021000" />
+      <workItem from="1674025392443" duration="5269000" />
+      <workItem from="1674081671335" duration="1094000" />
+      <workItem from="1674111218260" duration="9435000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit - begin creating compiler for custom programming language">
       <created>1673823991256</created>
@@ -212,7 +214,35 @@
       <option name="project" value="LOCAL" />
       <updated>1673985536734</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Implement JSMaker and tests for JSMaker (all passing)">
+      <created>1674030528459</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1674030528459</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Implement JSMaker and tests for JSMaker (all passing)">
+      <created>1674030548396</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1674030548396</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add intellliJ elements">
+      <created>1674030589281</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1674030589281</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add JSMaker for converting the programs to Javasript - alpha version">
+      <created>1674112305247</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1674112305247</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +258,10 @@
     <MESSAGE value="Implement Parser tests (if-else, binary expression failing)" />
     <MESSAGE value="Correct Parser tests (all passing), implement semicolon handling" />
     <MESSAGE value="Correct semicolon handling and function call parsing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correct semicolon handling and function call parsing" />
+    <MESSAGE value="Implement JSMaker and tests for JSMaker (all passing)" />
+    <MESSAGE value="Add intellliJ elements" />
+    <MESSAGE value="Add JSMaker for converting the programs to Javasript - alpha version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add JSMaker for converting the programs to Javasript - alpha version" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
