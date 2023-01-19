@@ -1,7 +1,5 @@
 import ast.*;
 
-import java.util.Arrays;
-
 public class JSMaker {
 
     Parser parser;

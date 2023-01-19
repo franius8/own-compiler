@@ -1,7 +1,8 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 class JSMakerTest {
 
@@ -62,6 +63,20 @@ class JSMakerTest {
     }
 
     @Test
+    @DisplayName("Correctly generates an assign expression for string")
+    void generatesAssignString() {
+        JSMaker test = new JSMaker("a = \"two\"");
+        assertEquals("(a=\"two\")", test.makeJS());
+    }
+
+    @Test
+    @DisplayName("Correctly generates an assign expression for boolean")
+    void generatesAssignBool() {
+        JSMaker test = new JSMaker("a = true");
+        assertEquals("(a=true)", test.makeJS());
+    }
+
+    @Test
     @DisplayName("Correctly generates function expression")
     void generateFunction() {
         JSMaker test = new JSMaker("function (x) 10");
@@ -82,4 +97,17 @@ class JSMakerTest {
         assertEquals("foo(a, 1)", test.makeJS());
     }
 
+    @Test
+    @DisplayName("Correctly generates a simple program")
+    void generateProgram() {
+        JSMaker test = new JSMaker("x = 1;\n y = 2;\n z = 1;\n");
+        assertEquals("(x=1)(y=2)(z=1)", test.makeJS());
+    }
+
+    @Test
+    @DisplayName("Correctly generates a single program with function")
+    void generateFunctionProgram() {
+        JSMaker test = new JSMaker("function(x, y) x+y");
+        assertEquals("(function (x, y) { return (x+y) })", test.makeJS());
+    }
 }
