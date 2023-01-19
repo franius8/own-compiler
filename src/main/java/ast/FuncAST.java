@@ -1,15 +1,25 @@
 package ast;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 final public class FuncAST extends ASTToken {
+    String name;
     String[] vars;
     ASTToken body;
     public FuncAST(String[] vars, ASTToken body) {
         super(ASTType.FUNC);
         this.vars = vars;
         this.body = body;
+        this.name = null;
 
+    }
+
+    public FuncAST(String name, String[] vars, ASTToken body) {
+        super(ASTType.FUNC);
+        this.name = name;
+        this.vars = vars;
+        this.body = body;
     }
 
     public String[] getVars() {
@@ -20,6 +30,20 @@ final public class FuncAST extends ASTToken {
         return body;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "FuncAST{" +
+                "name='" + name + '\'' +
+                ", vars=" + Arrays.toString(vars) +
+                ", body=" + body +
+                ", type=" + type +
+                '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -27,6 +51,7 @@ final public class FuncAST extends ASTToken {
 
         FuncAST funcAST = (FuncAST) o;
 
+        if (!Objects.equals(name, funcAST.name)) return false;
         // Probably incorrect - comparing Object[] arrays with Arrays.equals
         if (!Arrays.equals(vars, funcAST.vars)) return false;
         return body.equals(funcAST.body);
@@ -34,7 +59,8 @@ final public class FuncAST extends ASTToken {
 
     @Override
     public int hashCode() {
-        int result = Arrays.hashCode(vars);
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + Arrays.hashCode(vars);
         result = 31 * result + body.hashCode();
         return result;
     }

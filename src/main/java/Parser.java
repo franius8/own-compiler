@@ -106,7 +106,14 @@ public class Parser {
     }
 
     private ASTToken parseFunction() {
-        return new FuncAST(delimited("(", ")", ",", this::parseVarName).toArray(new String[0]), parseExpression());
+        Token tok = stream.peek();
+        if (tok.type() == TokenType.VAR) {
+            return new FuncAST(stream.next().value(), delimited("(", ")", ",",
+                    this::parseVarName).toArray(new String[0]), parseExpression());
+        } else {
+            return new FuncAST(delimited("(", ")", ",",
+                    this::parseVarName).toArray(new String[0]), parseExpression());
+        }
     }
 
     private ASTToken maybeCall(Supplier<ASTToken> func) {

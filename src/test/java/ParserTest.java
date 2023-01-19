@@ -63,6 +63,16 @@ class ParserTest {
     }
 
     @Test
+    @DisplayName("Correctly parses named function")
+    void namedFunc() {
+        Parser parser = new Parser("function foo (x) 10");
+        String[] args = { "x" };
+        ASTToken[] astAry = { new FuncAST("foo", args, new NumAST(10)) };
+        ProgAST prog = new ProgAST(astAry);
+        assertEquals(prog, parser.parse());
+    }
+
+    @Test
     @DisplayName("Correctly parses a function call")
     void parseCall() {
         Parser parser = new Parser("foo(a, 1)");
