@@ -1,7 +1,7 @@
 package ast;
 
 public abstract class PrimitiveAST<T> extends ASTToken {
-    T value;
+    final T value;
 
     public PrimitiveAST(ASTType type, T value) {
         super(type);

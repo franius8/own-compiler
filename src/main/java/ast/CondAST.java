@@ -4,9 +4,9 @@ import java.util.Objects;
 
 final public class CondAST extends ASTToken {
 
-    ASTToken cond;
-    ASTToken then;
-    ASTToken elseToken;
+    final ASTToken cond;
+    final ASTToken then;
+    final ASTToken elseToken;
 
     public CondAST(ASTToken cond, ASTToken then) {
         super(ASTType.IF);

@@ -39,7 +39,7 @@ public class Environment {
         throw new RuntimeException("Undefined variable: " + name);
     }
 
-    public int set(String name, int value) {
+    public void set(String name, int value) {
         Environment scope = lookup(name);
         if (scope == null && parent == null) {
             throw new RuntimeException("Undefined variable: " + name);
@@ -49,7 +49,6 @@ public class Environment {
         } else {
             scope.def(name, value);
         }
-        return value;
     }
 
     public void def(String name, int value) {

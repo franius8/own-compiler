@@ -6,9 +6,9 @@ import java.util.Arrays;
 import java.util.Objects;
 
 final public class FuncAST extends ASTToken {
-    String name;
-    String[] vars;
-    ASTToken body;
+    final String name;
+    final String[] vars;
+    final ASTToken body;
 
     Environment env;
 

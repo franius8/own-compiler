@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    static Scanner scanner = new Scanner(System.in);
+    static final Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         if (args.length > 0) {
             String expression = args[0];

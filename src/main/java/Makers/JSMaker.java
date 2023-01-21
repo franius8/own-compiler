@@ -5,8 +5,8 @@ import ast.*;
 
 public class JSMaker {
 
-    Parser parser;
-    StringBuilder result = new StringBuilder();
+    final Parser parser;
+    final StringBuilder result = new StringBuilder();
 
     public JSMaker(String program) {
         this.parser = new Parser(program);

@@ -27,7 +27,7 @@ class TokenStreamTest {
     @Test
     @DisplayName("Streams.Token stream correctly read punctuation")
     void puncTest() {
-        char[] punctuation = ".:()[]{}".toCharArray();
+        char[] punctuation = ",;()[]{}".toCharArray();
 
         for (char c: punctuation) {
             String cString = Character.toString(c);
@@ -85,21 +85,21 @@ class TokenStreamTest {
     @DisplayName("Input stream correctly returns null when eof reached")
     void nullTest() {
         TokenStream test = new TokenStream("");
-        assertEquals(null, test.next());
+        assertNull(test.next());
     }
 
     @Test
     @DisplayName("Input stream correctly ignores comments")
     void commentTest() {
         TokenStream test  = new TokenStream("#Comment\n");
-        assertEquals(null, test.next());
+        assertNull(test.next());
     }
 
     @Test
     @DisplayName("Input stream correctly ignores whitespace")
     void whiteSpaceTest() {
-        TokenStream test = new TokenStream("  .    ");
-        Token testToken = new Token(TokenType.PUNC, ".");
+        TokenStream test = new TokenStream("  ,    ");
+        Token testToken = new Token(TokenType.PUNC, ",");
         assertEquals(testToken, test.next());
     }
 

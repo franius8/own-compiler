@@ -1,7 +1,5 @@
 package Streams;
 
-import Streams.InputStream;
-
 import java.util.Arrays;
 import java.util.function.Predicate;
 
@@ -35,7 +33,7 @@ public class TokenStream {
     }
 
     public boolean eof() {
-        return peek() == null;
+        return peek() != null;
     }
 
     public RuntimeException croak(String msg) {

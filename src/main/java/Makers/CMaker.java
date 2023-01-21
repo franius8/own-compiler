@@ -1,11 +1,14 @@
+package Makers;
+
+import Parser.Parser;
 import ast.*;
 
 public class CMaker {
 
-    Parser parser;
-    StringBuilder body = new StringBuilder();
-    StringBuilder header = new StringBuilder("#include <stdio.h> \n");
-    StringBuilder main = new StringBuilder("int main() {");
+    final Parser parser;
+    final StringBuilder body = new StringBuilder();
+    final StringBuilder header = new StringBuilder("#include <stdio.h> \n");
+    final StringBuilder main = new StringBuilder("int main() {");
 
     //Work in progress - methods need to be implemented
 

@@ -1,22 +1,6 @@
 package Streams;
 
-public class Token {
-
-    private final TokenType type;
-    private final String value;
-
-    public Token(TokenType type, String value) {
-        this.type = type;
-        this.value = value;
-    }
-
-    public TokenType type() {
-        return type;
-    }
-
-    public String value() {
-        return value;
-    }
+public record Token(TokenType type, String value) {
 
     @Override
     public boolean equals(Object o) {
@@ -29,10 +13,4 @@ public class Token {
         return value.equals(token.value());
     }
 
-    @Override
-    public int hashCode() {
-        int result = type.hashCode();
-        result = 31 * result + value.hashCode();
-        return result;
-    }
 }

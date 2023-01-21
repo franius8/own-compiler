@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.function.Supplier;
 
 public class Parser {
-    TokenStream stream;
+    final TokenStream stream;
 
     public Parser(String input) {
         stream = new TokenStream(input);
@@ -23,7 +23,7 @@ public class Parser {
         ArrayList<T> ary = new ArrayList<>();
         boolean first = true;
         skipPunc(start);
-        while(!stream.eof()) {
+        while(stream.eof()) {
             if (isPunc(stop)) break;
             if (first) first = false;
             else skipPunc(separator);
@@ -39,9 +39,7 @@ public class Parser {
     }
 
     private ASTToken parseExpression() {
-        return maybeCall(() -> {
-            return maybeBinary(parseAtom(), 0);
-        });
+        return maybeCall(() -> maybeBinary(parseAtom(), 0));
     }
 
     private String parseVarName() {
@@ -52,11 +50,11 @@ public class Parser {
 
     private ProgAST parseTopLevel() {
         ArrayList<ASTToken> progList = new ArrayList<>();
-        while(!stream.eof()) {
+        while(stream.eof()) {
             progList.add(parseExpression());
-            if (!stream.eof()) skipPunc(";");
+            if (stream.eof()) skipPunc(";");
         }
-        return new ProgAST(progList.toArray(new ASTToken[progList.size()]));
+        return new ProgAST(progList.toArray(new ASTToken[0]));
     }
 
     private ASTToken parseProg() {

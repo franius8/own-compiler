@@ -8,8 +8,8 @@ import java.util.function.Predicate;
 
 public class Evaluator {
 
-    Environment globalEnvironment;
-    ProgAST prog;
+    final Environment globalEnvironment;
+    final ProgAST prog;
 
     public Evaluator(ProgAST prog, Environment globalEnvironment) {
         this.globalEnvironment = globalEnvironment;
@@ -166,7 +166,7 @@ public class Evaluator {
                 return a != b;
             }
             case "||" -> {
-                return a ? a : b;
+                return a || b;
             }
             case "&&" -> {
                 return a && b;

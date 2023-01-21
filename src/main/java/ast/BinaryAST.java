@@ -2,9 +2,9 @@ package ast;
 
 public class BinaryAST extends ASTToken {
 
-    String operator;
-    ASTToken left;
-    ASTToken right;
+    final String operator;
+    final ASTToken left;
+    final ASTToken right;
     public BinaryAST(String operator, ASTToken left, ASTToken right) {
         super(ASTType.BINARY);
         this.operator = operator;
