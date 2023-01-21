@@ -4,16 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="199e8055-5707-4b00-90cf-95e3c9ba1ced" name="Changes" comment="Add JSMaker for converting the programs to Javasript - alpha version">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CMaker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Environment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Evaluator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/CMakerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/EvaluatorTest.java" afterDir="false" />
+    <list default="true" id="199e8055-5707-4b00-90cf-95e3c9ba1ced" name="Changes" comment="Add named functions parsing">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Evaluator/Environment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ast/AssignAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/AssignAST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ast/BinaryAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/BinaryAST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Makers/CMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Environment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Evaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evaluator/Evaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/InputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Streams/InputStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JSMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Makers/JSMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Precedence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser/Precedence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Streams/Token.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TokenStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Streams/TokenStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TokenType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Streams/TokenType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ast/FuncAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/FuncAST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CMakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CMakerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/EvaluatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EvaluatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/InputStreamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/InputStreamTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/JSMakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/JSMakerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/TokenStreamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TokenStreamTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +51,9 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2KNemjFSRjnwJaoYn4JSoIEgyEM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -55,7 +68,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_directory_selection": "/Users/franciszekskawinski/Documents/GitHub/ProgrammingLanguage/src/main/java/codeMakers",
+    "last_directory_selection": "/Users/franciszekskawinski/Documents/GitHub/ProgrammingLanguage/src/main/java/Makers",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,8 +84,11 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-      <recent name="codeMakers" />
+      <recent name="Makers" />
+      <recent name="Evaluator" />
+      <recent name="Parser" />
+      <recent name="Streams" />
+      <recent name="Environment" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
@@ -86,41 +102,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EvaluatorTest.boolBinary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EvaluatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingLanguage" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="EvaluatorTest" />
-      <option name="METHOD_NAME" value="boolBinary" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EvaluatorTest.evaluateFunc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProgrammingLanguage" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EvaluatorTest" />
+      <option name="METHOD_NAME" value="evaluateFunc" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EvaluatorTest.boolIntBinary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EvaluatorTest.evaluateFuncCall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingLanguage" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="EvaluatorTest" />
-      <option name="METHOD_NAME" value="boolIntBinary" />
+      <option name="METHOD_NAME" value="evaluateFuncCall" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EvaluatorTest.evaluateIf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EvaluatorTest.evaluateFuncNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingLanguage" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="EvaluatorTest" />
-      <option name="METHOD_NAME" value="evaluateIf" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EvaluatorTest.evaluateVar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProgrammingLanguage" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="EvaluatorTest" />
-      <option name="METHOD_NAME" value="evaluateVar" />
+      <option name="METHOD_NAME" value="evaluateFuncNull" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -129,10 +144,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.EvaluatorTest.evaluateIf" />
-        <item itemvalue="JUnit.EvaluatorTest.evaluateVar" />
-        <item itemvalue="JUnit.EvaluatorTest.boolBinary" />
-        <item itemvalue="JUnit.EvaluatorTest.boolIntBinary" />
+        <item itemvalue="JUnit.EvaluatorTest.evaluateFuncCall" />
+        <item itemvalue="JUnit.EvaluatorTest.evaluateFuncNull" />
+        <item itemvalue="JUnit.EvaluatorTest.evaluateFunc" />
+        <item itemvalue="JUnit.EvaluatorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -149,7 +164,8 @@
       <workItem from="1673950272228" duration="12436000" />
       <workItem from="1674025392443" duration="5269000" />
       <workItem from="1674081671335" duration="1094000" />
-      <workItem from="1674111218260" duration="9435000" />
+      <workItem from="1674111218260" duration="12965000" />
+      <workItem from="1674291181610" duration="5502000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit - begin creating compiler for custom programming language">
       <created>1673823991256</created>
@@ -242,7 +258,28 @@
       <option name="project" value="LOCAL" />
       <updated>1674112305247</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Implement early version of CMaker for converting to C files">
+      <created>1674121202867</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1674121202867</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Implement early version of evaluator and the Main class to execute from cmd">
+      <created>1674121251945</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1674121251945</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add named functions parsing">
+      <created>1674122001181</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1674122001181</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,7 +298,10 @@
     <MESSAGE value="Implement JSMaker and tests for JSMaker (all passing)" />
     <MESSAGE value="Add intellliJ elements" />
     <MESSAGE value="Add JSMaker for converting the programs to Javasript - alpha version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add JSMaker for converting the programs to Javasript - alpha version" />
+    <MESSAGE value="Implement early version of CMaker for converting to C files" />
+    <MESSAGE value="Implement early version of evaluator and the Main class to execute from cmd" />
+    <MESSAGE value="Add named functions parsing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add named functions parsing" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

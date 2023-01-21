@@ -1,3 +1,6 @@
+package Makers;
+
+import Parser.Parser;
 import ast.*;
 
 public class JSMaker {

@@ -1,3 +1,5 @@
+import Evaluator.Evaluator;
+import Parser.Parser;
 import ast.ProgAST;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -142,5 +144,29 @@ class EvaluatorTest {
         prog = new Parser("x = 2;\ny = 5;\n if false then x else y").parse();
         test = new Evaluator(prog);
         assertEquals("5", test.evaluate());
+    }
+
+    @Test
+    @DisplayName("Does not throw when evaluating a function")
+    void evaluateFunc() {
+        ProgAST prog = new Parser("function test (x) x + 5").parse();
+        Evaluator test = new Evaluator(prog);
+        assertDoesNotThrow(test::evaluate);
+    }
+
+    @Test
+    @DisplayName("Returns null when only function creation is evaluated")
+    void evaluateFuncNull() {
+        ProgAST prog = new Parser("function test (x) x + 5").parse();
+        Evaluator test = new Evaluator(prog);
+        assertNull(test.evaluate());
+    }
+
+    @Test
+    @DisplayName("Previously defined function may be called")
+    void evaluateFuncCall() {
+        ProgAST prog = new Parser("function test (x) x + 5;\ntest(5);\n").parse();
+        Evaluator test = new Evaluator(prog);
+        assertEquals("10", test.evaluate());
     }
 }

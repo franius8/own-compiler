@@ -1,3 +1,4 @@
+import Parser.Parser;
 import ast.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ParserTest {
 
     @Test
-    @DisplayName("Parser does not generate any errors with correct integer input")
+    @DisplayName("Parser.Parser does not generate any errors with correct integer input")
     void parse() {
         Parser parser = new Parser("123");
         assertDoesNotThrow(parser::parse);

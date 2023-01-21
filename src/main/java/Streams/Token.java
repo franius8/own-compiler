@@ -1,3 +1,5 @@
+package Streams;
+
 public class Token {
 
     private final TokenType type;

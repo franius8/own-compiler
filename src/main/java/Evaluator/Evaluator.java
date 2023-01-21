@@ -1,3 +1,5 @@
+package Evaluator;
+
 import ast.*;
 
 import java.util.Arrays;
@@ -75,7 +77,7 @@ public class Evaluator {
                 }
             }
             case FUNC -> {
-                makeFunction((FuncAST) token);
+                makeFunction((FuncAST) token, env);
                 return null;
             }
             case IF -> {
@@ -86,14 +88,29 @@ public class Evaluator {
                 return null;
             }
             case CALL -> {
-                return null;
+                return callFunction((FuncCallAST) token, env);
             }
         }
         throw new RuntimeException("Cannot evaluate: " + token);
     }
 
-    private void makeFunction(FuncAST token) {
+    private void makeFunction(FuncAST token, Environment env) {
+        Environment scope = env.extend();
+        for (String var: token.getVars()) {
+            scope.def(var, 0);
+        }
+        token.setEnv(scope);
+        env.defFunc(token.getName(), token);
+    }
 
+    private String callFunction(FuncCallAST token, Environment env) {
+        FuncAST func = env.getFunc(((VarAST) token.getFunc()).getValue());
+        Environment scope = func.getEnv();
+        for (int i = 0; i < token.getArgs().size(); i++) {
+            NumAST x = (NumAST) token.getArgs().get(i);
+            scope.set(func.getVars()[i], Integer.parseInt(Objects.requireNonNull(evaluateExp(x, env))));
+        }
+        return evaluateExp(func.getBody(), scope);
     }
 
     private int applyMathOp(String op, int a, int b) {

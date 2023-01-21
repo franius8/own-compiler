@@ -1,3 +1,6 @@
+import Streams.Token;
+import Streams.TokenStream;
+import Streams.TokenType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +12,7 @@ class TokenStreamTest {
     Token testToken;
 
     @Test
-    @DisplayName("Token stream correctly read an operator")
+    @DisplayName("Streams.Token stream correctly read an operator")
     void opTest() {
         char[] operators = "+-*/%=&|<>!".toCharArray();
 
@@ -22,7 +25,7 @@ class TokenStreamTest {
     }
 
     @Test
-    @DisplayName("Token stream correctly read punctuation")
+    @DisplayName("Streams.Token stream correctly read punctuation")
     void puncTest() {
         char[] punctuation = ".:()[]{}".toCharArray();
 
@@ -35,7 +38,7 @@ class TokenStreamTest {
     }
 
     @Test
-    @DisplayName("Token stream correctly reads strings")
+    @DisplayName("Streams.Token stream correctly reads strings")
     void stringTest() {
         String[] testStrings = {"\"aaa\"", "\"test\"", "\"Cat sat on the mat\"", "\"Test, test, test\""};
         for (String str: testStrings) {
@@ -46,7 +49,7 @@ class TokenStreamTest {
     }
 
     @Test
-    @DisplayName("Token stream correctly reads numbers")
+    @DisplayName("Streams.Token stream correctly reads numbers")
     void numberTest() {
         String[] testStrings = {"1", "1234", "13445", "434546556", "213721372137"};
         for (String str: testStrings) {
@@ -57,7 +60,7 @@ class TokenStreamTest {
     }
 
     @Test
-    @DisplayName("Token stream correctly reads keywords")
+    @DisplayName("Streams.Token stream correctly reads keywords")
     void keywordTest() {
         String[] testStrings = { "if", "else" };
         for (String str: testStrings) {
@@ -68,7 +71,7 @@ class TokenStreamTest {
     }
 
     @Test
-    @DisplayName("Token stream correctly reads identifiers")
+    @DisplayName("Streams.Token stream correctly reads identifiers")
     void idTest() {
         String[] testStrings = { "cat", "mat", "_pope", "pope?", "testing!", "_testing", "snakeCase", "_testingSnakeCase"};
         for (String str: testStrings) {

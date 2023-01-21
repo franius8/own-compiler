@@ -1,5 +1,7 @@
 package ast;
 
+import Evaluator.Environment;
+
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -7,6 +9,9 @@ final public class FuncAST extends ASTToken {
     String name;
     String[] vars;
     ASTToken body;
+
+    Environment env;
+
     public FuncAST(String[] vars, ASTToken body) {
         super(ASTType.FUNC);
         this.vars = vars;
@@ -32,6 +37,14 @@ final public class FuncAST extends ASTToken {
 
     public String getName() {
         return name;
+    }
+
+    public Environment getEnv() {
+        return env;
+    }
+
+    public void setEnv(Environment env) {
+        this.env = env;
     }
 
     @Override

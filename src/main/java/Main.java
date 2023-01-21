@@ -1,12 +1,13 @@
-import java.util.Arrays;
+import Evaluator.Evaluator;
+import Parser.Parser;
+
 import java.util.Scanner;
 
 public class Main {
 
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println(args[0]);
-        if (args[0] != null) {
+        if (args.length > 0) {
             String expression = args[0];
             System.out.println( new Evaluator( new Parser(expression).parse()).evaluate());
         } else {

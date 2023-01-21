@@ -1,3 +1,5 @@
+package Streams;
+
 public class InputStream {
 
     final private char[] stream;

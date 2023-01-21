@@ -1,3 +1,5 @@
+package Streams;
+
 public enum TokenType {
     PUNC,
     NUM,

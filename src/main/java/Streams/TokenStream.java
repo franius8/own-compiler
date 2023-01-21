@@ -1,3 +1,7 @@
+package Streams;
+
+import Streams.InputStream;
+
 import java.util.Arrays;
 import java.util.function.Predicate;
 
