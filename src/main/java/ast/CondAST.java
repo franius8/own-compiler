@@ -35,6 +35,16 @@ final public class CondAST extends ASTToken {
     }
 
     @Override
+    public String toString() {
+        return "CondAST{" +
+                "cond=" + cond +
+                ", then=" + then +
+                ", elseToken=" + elseToken +
+                ", type=" + type +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

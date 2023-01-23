@@ -10,7 +10,7 @@ public class ProgAST extends ASTToken {
     }
 
     public ASTToken[] getSequence() {
-        return sequence;
+        return Arrays.copyOf(sequence, sequence.length);
     }
 
     @Override

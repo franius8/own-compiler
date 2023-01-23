@@ -4,25 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="199e8055-5707-4b00-90cf-95e3c9ba1ced" name="Changes" comment="Implement ability to evaluate function calls, move code into packages">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Makers/CMaker.java" afterDir="false" />
+    <list default="true" id="199e8055-5707-4b00-90cf-95e3c9ba1ced" name="Changes" comment="Code refactoring">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Evaluator/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evaluator/Environment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Evaluator/Evaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evaluator/Evaluator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Makers/JSMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Makers/JSMaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Streams/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Streams/Token.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Streams/TokenStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Streams/TokenStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ast/ASTToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/ASTToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ast/BinaryAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/BinaryAST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ast/CondAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/CondAST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ast/FuncAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/FuncAST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ast/FuncCallAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/FuncCallAST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ast/PrimitiveAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/PrimitiveAST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ast/ProgAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/ProgAST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CMakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CMakerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TokenStreamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TokenStreamTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/EvaluatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EvaluatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +82,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TokenStreamTest">
+  <component name="RunManager" selected="JUnit.EvaluatorTest">
     <configuration name="EvaluatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingLanguage" />
       <option name="PACKAGE_NAME" value="" />
@@ -104,29 +92,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InputStreamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EvaluatorTest.evaluateFibs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingLanguage" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="InputStreamTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="EvaluatorTest" />
+      <option name="METHOD_NAME" value="evaluateFibs" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JSMakerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EvaluatorTest.evaluateFuncCall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingLanguage" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="JSMakerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="EvaluatorTest" />
+      <option name="METHOD_NAME" value="evaluateFuncCall" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EvaluatorTest.evaulateFactorial" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingLanguage" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ParserTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="EvaluatorTest" />
+      <option name="METHOD_NAME" value="evaulateFactorial" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,11 +133,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TokenStreamTest" />
-        <item itemvalue="JUnit.ParserTest" />
-        <item itemvalue="JUnit.JSMakerTest" />
-        <item itemvalue="JUnit.InputStreamTest" />
         <item itemvalue="JUnit.EvaluatorTest" />
+        <item itemvalue="JUnit.EvaluatorTest.evaluateFuncCall" />
+        <item itemvalue="JUnit.EvaluatorTest.evaulateFactorial" />
+        <item itemvalue="JUnit.EvaluatorTest.evaluateFibs" />
+        <item itemvalue="JUnit.TokenStreamTest" />
       </list>
     </recent_temporary>
   </component>
@@ -164,7 +155,7 @@
       <workItem from="1674025392443" duration="5269000" />
       <workItem from="1674081671335" duration="1094000" />
       <workItem from="1674111218260" duration="12965000" />
-      <workItem from="1674291181610" duration="6260000" />
+      <workItem from="1674291181610" duration="17257000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit - begin creating compiler for custom programming language">
       <created>1673823991256</created>
@@ -285,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674338788361</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Code refactoring">
+      <created>1674339350600</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1674339350600</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +317,8 @@
     <MESSAGE value="Implement early version of evaluator and the Main class to execute from cmd" />
     <MESSAGE value="Add named functions parsing" />
     <MESSAGE value="Implement ability to evaluate function calls, move code into packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement ability to evaluate function calls, move code into packages" />
+    <MESSAGE value="Code refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code refactoring" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
@@ -327,6 +326,11 @@
         <PinnedItemInfo parentTag="ast.VarAST" memberName="type" />
       </pinned-members>
     </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="env" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ProgrammingLanguage$ParserTest_parseBinary.ic" NAME="ParserTest.parseBinary Coverage Results" MODIFIED="1673951354490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

@@ -28,7 +28,7 @@ final public class FuncAST extends ASTToken {
     }
 
     public String[] getVars() {
-        return vars;
+        return Arrays.copyOf(vars, vars.length);
     }
 
     public ASTToken getBody() {

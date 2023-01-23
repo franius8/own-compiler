@@ -165,8 +165,24 @@ class EvaluatorTest {
     @Test
     @DisplayName("Previously defined function may be called")
     void evaluateFuncCall() {
-        ProgAST prog = new Parser("function test (x) x + 5;\ntest(5);\n").parse();
+        ProgAST prog = new Parser("function add (x) x + 5; add(5);").parse();
         Evaluator test = new Evaluator(prog);
         assertEquals("10", test.evaluate());
+    }
+
+    @Test
+    @DisplayName("Correctly evaluates a Fibonacci sequence recursive function")
+    void evaluateFibs() {
+        ProgAST prog = new Parser("function fib (n)  if n < 2 then n else fib(n - 1) + fib(n - 2); fib(8);").parse();
+        Evaluator test = new Evaluator(prog);
+        assertEquals("21", test.evaluate());
+    }
+
+    @Test
+    @DisplayName("Correctly evaluates a factorial calculator recursive function")
+    void evaulateFactorial() {
+        ProgAST prog = new Parser("function factorial (n) if n == 1 then n else n * factorial(n - 1); factorial(5);").parse();
+        Evaluator test = new Evaluator(prog);
+        assertEquals("120", test.evaluate());
     }
 }

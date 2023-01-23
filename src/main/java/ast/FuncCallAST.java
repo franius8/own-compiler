@@ -1,6 +1,7 @@
 package ast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 final public class FuncCallAST extends ASTToken {
     final ASTToken func;
@@ -16,8 +17,17 @@ final public class FuncCallAST extends ASTToken {
         return func;
     }
 
-    public ArrayList<ASTToken> getArgs() {
+    public List<ASTToken> getArgs() {
         return args;
+    }
+
+    @Override
+    public String toString() {
+        return "FuncCallAST{" +
+                "func=" + func +
+                ", args=" + args +
+                ", type=" + type +
+                '}';
     }
 
     @Override

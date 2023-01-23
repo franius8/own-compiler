@@ -3,6 +3,7 @@ package Evaluator;
 import ast.FuncAST;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Environment {
 
@@ -36,6 +37,8 @@ public class Environment {
 
     public int get(String name) {
         if (vars.containsKey(name)) return vars.get(name);
+        Environment scope = lookup(name);
+        if (scope != null && scope.getVars().containsKey(name)) return scope.get(name);
         throw new RuntimeException("Undefined variable: " + name);
     }
 
@@ -59,11 +62,12 @@ public class Environment {
         return parent;
     }
 
-    public HashMap<String, Integer> getVars() {
-        if (parent == null) {
-            return null;
-        }
+    public Map<String, Integer> getVars() {
         return vars;
+    }
+
+    public Map<String, FuncAST> getFuncs() {
+        return funcs;
     }
 
     public void defFunc(String name, FuncAST func) {
@@ -72,13 +76,15 @@ public class Environment {
 
     public FuncAST getFunc(String name) {
         if (funcs.containsKey(name)) return funcs.get(name);
-        throw new RuntimeException("Undefined function: " + name);
+        Environment scope = lookupFunc(name);
+        if (scope != null) return scope.getFunc(name);
+        throw new RuntimeException("Undefined variable: " + name);
     }
 
     public Environment lookupFunc(String name) {
         Environment scope = this;
         while (scope != null) {
-            if (scope.getVars() != null && scope.hasFunc(name)) return scope;
+            if (scope.getFuncs() != null && scope.hasFunc(name)) return scope;
             scope = scope.getParent();
         }
         return null;
@@ -103,5 +109,13 @@ public class Environment {
 
     private boolean hasFunc(String name) {
         return funcs.containsKey(name);
+    }
+
+    @Override
+    public String toString() {
+        return "Environment{" +
+                ", parent=" + parent +
+                ", vars=" + vars +
+                '}';
     }
 }

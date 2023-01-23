@@ -90,14 +90,21 @@ public class Evaluator {
             case CALL -> {
                 return callFunction((FuncCallAST) token, env);
             }
+            case PROG -> {
+                String val = "";
+                for (ASTToken tok: ((ProgAST) token).getSequence()) {
+                    val = evaluateExp(tok, globalEnvironment);
+                }
+                return val;
+            }
         }
         throw new RuntimeException("Cannot evaluate: " + token);
     }
 
     private void makeFunction(FuncAST token, Environment env) {
         Environment scope = env.extend();
-        for (String var: token.getVars()) {
-            scope.def(var, 0);
+        for (String funcVar: token.getVars()) {
+            scope.def(funcVar, 0);
         }
         token.setEnv(scope);
         env.defFunc(token.getName(), token);
@@ -105,10 +112,11 @@ public class Evaluator {
 
     private String callFunction(FuncCallAST token, Environment env) {
         FuncAST func = env.getFunc(((VarAST) token.getFunc()).getValue());
-        Environment scope = func.getEnv();
+        Environment scope = env.extend();
+        func.setEnv(scope);
         for (int i = 0; i < token.getArgs().size(); i++) {
-            NumAST x = (NumAST) token.getArgs().get(i);
-            scope.set(func.getVars()[i], Integer.parseInt(Objects.requireNonNull(evaluateExp(x, env))));
+            ASTToken x = token.getArgs().get(i);
+            scope.def(func.getVars()[i], Integer.parseInt(Objects.requireNonNull(evaluateExp(x, env))));
         }
         return evaluateExp(func.getBody(), scope);
     }
