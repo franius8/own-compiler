@@ -1,5 +1,7 @@
 package Evaluator;
 
+import Exceptions.CannotEvaluateException;
+import Exceptions.UnknownOperatorException;
 import ast.*;
 
 import java.util.Arrays;
@@ -98,7 +100,7 @@ public class Evaluator {
                 return val;
             }
         }
-        throw new RuntimeException("Cannot evaluate: " + token);
+        throw new CannotEvaluateException("Cannot evaluate: " + token);
     }
 
     private void makeFunction(FuncAST token, Environment env) {
@@ -138,7 +140,7 @@ public class Evaluator {
             case "%" -> {
                 return a % div(b);
             }
-            default -> throw new RuntimeException("Unknown operator: " + op);
+            default -> throw new UnknownOperatorException("Unknown operator: " + op);
         }
     }
     private boolean applyBoolOp(String op, int a, int b) {
@@ -161,7 +163,7 @@ public class Evaluator {
             case "!=" -> {
                 return a != b;
             }
-            default -> throw new RuntimeException("Unknown operator: " + op);
+            default -> throw new UnknownOperatorException("Unknown operator: " + op);
         }
     }
 
@@ -179,12 +181,12 @@ public class Evaluator {
             case "&&" -> {
                 return a && b;
             }
-            default -> throw new RuntimeException("Unknown operator: " + op);
+            default -> throw new UnknownOperatorException("Unknown operator: " + op);
         }
     }
 
     private int div(int x) {
-        if (x == 0) throw new RuntimeException("Division by 0 not allowed");
+        if (x == 0) throw new NumberFormatException("Division by 0 not allowed");
         return x;
     }
 

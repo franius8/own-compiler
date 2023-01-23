@@ -159,22 +159,22 @@ public class Parser {
         return token != null && token.type() == TokenType.OP && (ch == null || token.value().equals(ch));
     }
 
-    private void skipPunc(String ch) throws RuntimeException {
+    private void skipPunc(String ch) {
         if (isPunc(ch)) stream.next();
         else throw stream.croak("Expecting punctuation: \"" + ch + "\"");
     }
 
-    private void skipKwd(String ch) throws RuntimeException {
+    private void skipKwd(String ch) {
         if (isKwd(ch)) stream.next();
         else throw stream.croak("Expecting keyword: \"" + ch + "\"");
     }
 
-    private void skipOp(String ch) throws RuntimeException {
+    private void skipOp(String ch) {
         if (isOp(ch)) stream.next();
         else throw stream.croak("Expecting operator: \"" + ch + "\"");
     }
 
-    private void unexpected() throws RuntimeException {
+    private void unexpected() {
         throw stream.croak("Unexpected token: " + stream.peek().value());
     }
 }

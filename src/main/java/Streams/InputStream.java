@@ -1,5 +1,7 @@
 package Streams;
 
+import Exceptions.ParserException;
+
 public class InputStream {
 
     final private char[] stream;
@@ -31,6 +33,6 @@ public class InputStream {
     }
 
     public RuntimeException croak(String msg) {
-        return new RuntimeException(msg + "(" + line + ":" + column + ")");
+        return new ParserException(msg + "(" + line + ":" + column + ")");
     }
 }
