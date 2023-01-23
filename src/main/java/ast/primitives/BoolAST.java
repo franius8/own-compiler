@@ -1,4 +1,6 @@
-package ast;
+package ast.primitives;
+
+import ast.ASTType;
 
 final public class BoolAST extends PrimitiveAST<Boolean> {
     public BoolAST(Boolean value) {

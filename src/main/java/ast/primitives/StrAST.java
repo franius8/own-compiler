@@ -1,4 +1,6 @@
-package ast;
+package ast.primitives;
+
+import ast.ASTType;
 
 final public class StrAST extends PrimitiveAST<String> {
     public StrAST(String value) {

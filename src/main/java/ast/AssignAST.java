@@ -1,5 +1,7 @@
 package ast;
 
+import ast.primitives.VarAST;
+
 final public class AssignAST extends ASTToken{
     private final String operator;
     private final VarAST left;

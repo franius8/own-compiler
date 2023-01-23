@@ -4,13 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="199e8055-5707-4b00-90cf-95e3c9ba1ced" name="Changes" comment="Code refactoring">
+    <list default="true" id="199e8055-5707-4b00-90cf-95e3c9ba1ced" name="Changes" comment="Add custom exception classes - extending RuntimeExtension">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/InvalidTypeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/ParserException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Exceptions/UnknownOperatorException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Makers/PrimitiveMaker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Evaluator/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evaluator/Environment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Evaluator/Evaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Evaluator/Evaluator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ast/CondAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/CondAST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ast/FuncCallAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/FuncCallAST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/EvaluatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EvaluatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Makers/CMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Makers/CMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Makers/JSMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Makers/JSMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ast/ASTToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/ASTToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ast/AssignAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/AssignAST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ast/BoolAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/primitives/BoolAST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ast/NumAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/primitives/NumAST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ast/PrimitiveAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/primitives/PrimitiveAST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ast/StrAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/primitives/StrAST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ast/VarAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ast/primitives/VarAST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CMakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CMakerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,32 +84,41 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ast.primitives" />
       <recent name="Makers" />
       <recent name="Evaluator" />
       <recent name="Parser" />
       <recent name="Streams" />
-      <recent name="Environment" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EvaluatorTest">
-    <configuration name="EvaluatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CMakerTest">
+    <configuration name="CMakerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingLanguage" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="EvaluatorTest" />
+      <option name="MAIN_CLASS_NAME" value="CMakerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EvaluatorTest.evaluateFibs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CMakerTest.generateFunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProgrammingLanguage" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CMakerTest" />
+      <option name="METHOD_NAME" value="generateFunction" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EvaluatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProgrammingLanguage" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="EvaluatorTest" />
-      <option name="METHOD_NAME" value="evaluateFibs" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,22 +143,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TokenStreamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProgrammingLanguage" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TokenStreamTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CMakerTest" />
+        <item itemvalue="JUnit.CMakerTest.generateFunction" />
         <item itemvalue="JUnit.EvaluatorTest" />
         <item itemvalue="JUnit.EvaluatorTest.evaluateFuncCall" />
         <item itemvalue="JUnit.EvaluatorTest.evaulateFactorial" />
-        <item itemvalue="JUnit.EvaluatorTest.evaluateFibs" />
-        <item itemvalue="JUnit.TokenStreamTest" />
       </list>
     </recent_temporary>
   </component>
@@ -155,7 +167,7 @@
       <workItem from="1674025392443" duration="5269000" />
       <workItem from="1674081671335" duration="1094000" />
       <workItem from="1674111218260" duration="12965000" />
-      <workItem from="1674291181610" duration="17257000" />
+      <workItem from="1674291181610" duration="20523000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit - begin creating compiler for custom programming language">
       <created>1673823991256</created>
@@ -283,7 +295,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674339350600</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Code refactoring + function scope corrections">
+      <created>1674465927371</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1674465927371</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Add custom exception classes - extending RuntimeExtension">
+      <created>1674466541266</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1674466541266</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +344,9 @@
     <MESSAGE value="Add named functions parsing" />
     <MESSAGE value="Implement ability to evaluate function calls, move code into packages" />
     <MESSAGE value="Code refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code refactoring" />
+    <MESSAGE value="Code refactoring + function scope corrections" />
+    <MESSAGE value="Add custom exception classes - extending RuntimeExtension" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add custom exception classes - extending RuntimeExtension" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

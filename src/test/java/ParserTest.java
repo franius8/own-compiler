@@ -1,5 +1,9 @@
 import Parser.Parser;
 import ast.*;
+import ast.primitives.BoolAST;
+import ast.primitives.NumAST;
+import ast.primitives.StrAST;
+import ast.primitives.VarAST;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

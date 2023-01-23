@@ -3,6 +3,10 @@ package Evaluator;
 import Exceptions.CannotEvaluateException;
 import Exceptions.UnknownOperatorException;
 import ast.*;
+import ast.primitives.BoolAST;
+import ast.primitives.NumAST;
+import ast.primitives.StrAST;
+import ast.primitives.VarAST;
 
 import java.util.Arrays;
 import java.util.Objects;

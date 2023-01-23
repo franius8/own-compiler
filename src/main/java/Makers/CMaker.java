@@ -1,14 +1,21 @@
 package Makers;
 
+import Exceptions.InvalidTypeException;
 import Parser.Parser;
 import ast.*;
+
+import java.util.Arrays;
 
 public class CMaker {
 
     final Parser parser;
     final StringBuilder body = new StringBuilder();
     final StringBuilder header = new StringBuilder("#include <stdio.h> \n");
+
+    final StringBuilder functionDeclarations = new StringBuilder();
     final StringBuilder main = new StringBuilder("int main() {");
+
+    final StringBuilder functionBlock = new StringBuilder();
 
     //Work in progress - methods need to be implemented
 
@@ -22,13 +29,18 @@ public class CMaker {
             body.append(c(token));
             body.append(";");
         }
-        return String.valueOf(header) + main + body + " return 0; }";
+        if (!functionDeclarations.isEmpty()) {
+            return header.toString() + functionDeclarations + main + body + " return 0; }";
+        } else {
+            return header.toString() + main + body + " return 0; }";
+        }
+
     }
 
     private String c(ASTToken token) {
         switch (token.getType()) {
             case NUM, STR, BOOL, VAR -> {
-                return cPrimitive(token);
+                return PrimitiveMaker.evaluatePrimitive(token);
             }
             case BINARY -> {
                 return cBinary(token);
@@ -45,7 +57,7 @@ public class CMaker {
             case IF -> {
                 return cIf(token);
             }
-            default -> throw new RuntimeException("Unknown token type: " + token.getType());
+            default -> throw new InvalidTypeException("Unknown token type: " + token.getType());
         }
     }
 
@@ -58,6 +70,11 @@ public class CMaker {
     }
 
     private String cFunc(ASTToken token) {
+        FuncAST funcToken = (FuncAST) token;
+        functionDeclarations.append("int ").append(funcToken.getName())
+                .append(" (")
+                .append(String.join(", ", Arrays.stream(funcToken.getVars()).map(x -> "int " + x).toArray(String[]::new)))
+                .append(");");
         return null;
     }
 
@@ -68,7 +85,7 @@ public class CMaker {
             case NUM -> type = "int";
             case BOOL -> type = "bool";
             case STR -> type = "char[]";
-            default -> throw new RuntimeException("Invalid operation type");
+            default -> throw new InvalidTypeException("Invalid operation type");
         }
         return(type + " " + c(assignToken.getLeft()) + assignToken.getOperator() + c(assignToken.getRight()));
     }
@@ -77,21 +94,4 @@ public class CMaker {
         return null;
     }
 
-    private String cPrimitive(ASTToken token) {
-        switch (token.getType()) {
-            case NUM -> {
-                return Integer.toString(((NumAST) token).getValue());
-            }
-            case BOOL -> {
-                return Boolean.toString(((BoolAST) token).getValue());
-            }
-            case STR -> {
-                return '"' + ((StrAST) token).getValue() + '"';
-            }
-            case VAR -> {
-                return ((VarAST) token).getValue();
-            }
-            default -> throw new RuntimeException("Unknown primitive type: " + token.getType());
-        }
-    }
 }

@@ -4,6 +4,10 @@ import Streams.Token;
 import Streams.TokenStream;
 import Streams.TokenType;
 import ast.*;
+import ast.primitives.BoolAST;
+import ast.primitives.NumAST;
+import ast.primitives.StrAST;
+import ast.primitives.VarAST;
 
 import java.util.ArrayList;
 import java.util.function.Supplier;

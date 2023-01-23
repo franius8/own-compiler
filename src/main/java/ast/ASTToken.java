@@ -1,7 +1,7 @@
 package ast;
 
 public abstract class ASTToken {
-    final ASTType type;
+    final protected ASTType type;
 
     public ASTToken(ASTType type) {
         this.type = type;

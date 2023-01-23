@@ -19,4 +19,11 @@ class CMakerTest {
         CMaker test = new CMaker("a = 2");
         assertEquals("#include <stdio.h> \nint main() {int a=2; return 0; }", test.makeC());
     }
+
+    @Test
+    @DisplayName("Correctly generates a function assignment expression")
+    void generateFunction() {
+        CMaker test = new CMaker("function test (x) x + 2;");
+        assertEquals("#include <stdio.h> \nint main() {int a=2; return 0; }", test.makeC());
+    }
 }

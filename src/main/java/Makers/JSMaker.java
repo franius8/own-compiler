@@ -1,5 +1,6 @@
 package Makers;
 
+import Exceptions.InvalidTypeException;
 import Parser.Parser;
 import ast.*;
 
@@ -23,7 +24,7 @@ public class JSMaker {
     private String js(ASTToken token) {
         switch (token.getType()) {
             case NUM, STR, BOOL, VAR -> {
-                return jsPrimitive(token);
+                return PrimitiveMaker.evaluatePrimitive(token);
             }
             case BINARY -> {
                 return jsBinary(token);
@@ -40,25 +41,7 @@ public class JSMaker {
             case IF -> {
                 return jsIf(token);
             }
-            default -> throw new RuntimeException("Unknown token type: " + token.getType());
-        }
-    }
-
-    private String jsPrimitive(ASTToken token) {
-        switch (token.getType()) {
-            case NUM -> {
-                return Integer.toString(((NumAST) token).getValue());
-            }
-            case BOOL -> {
-                return Boolean.toString(((BoolAST) token).getValue());
-            }
-            case STR -> {
-                return '"' + ((StrAST) token).getValue() + '"';
-            }
-            case VAR -> {
-                return ((VarAST) token).getValue();
-            }
-            default -> throw new RuntimeException("Unknown primitive type: " + token.getType());
+            default -> throw new InvalidTypeException("Unknown token type: " + token.getType());
         }
     }
 
@@ -75,7 +58,7 @@ public class JSMaker {
     private String jsFunc(ASTToken token) {
         FuncAST funcToken = (FuncAST) token;
         return "(function (" + String.join(", ", funcToken.getVars()) + ") { " +
-                "return " + js(((FuncAST) token).getBody()) + " })";
+                "return " + js((funcToken).getBody()) + " })";
     }
 
     private String jsCall(ASTToken token) {

@@ -1,4 +1,7 @@
-package ast;
+package ast.primitives;
+
+import ast.ASTToken;
+import ast.ASTType;
 
 public abstract class PrimitiveAST<T> extends ASTToken {
     final T value;
